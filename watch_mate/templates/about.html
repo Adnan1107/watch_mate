@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Crono Space</title>
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #070707; color: #fff; }
+
+    /* HERO / BANNER */
+    .about-hero {
+      position: relative;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url("{% static 'images/about1.jpg' %}") center/cover no-repeat;
+      filter: brightness(0.6);
+    }
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1.2s ease forwards;
+    }
+    .hero-overlay h1 {
+      font-size: clamp(32px, 5vw, 60px);
+      margin-bottom: 15px;
+    }
+    .hero-overlay p {
+      font-size: clamp(16px, 2vw, 22px);
+    }
+
+    /* ABOUT SECTION */
+    .about-section { padding: 80px 20px; display: flex; justify-content: center; background: #111; }
+    .about-content { display: flex; flex-wrap: wrap; max-width: 1200px; align-items: center; gap: 40px; }
+    .about-text { flex: 1; min-width: 280px; }
+    .about-text h2 { font-size: 32px; margin-bottom: 20px; color: #ffcc00; }
+    .about-text p { font-size: 18px; margin-bottom: 15px; line-height: 1.6; }
+    .about-image { flex: 1; min-width: 280px; }
+    .about-image img { width: 100%; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.4s; }
+    .about-image img:hover { transform: scale(1.05); }
+
+    /* TEAM SECTION */
+    .team-section { padding: 60px 20px; text-align: center; }
+    .team-section h2 { font-size: 36px; margin-bottom: 40px; color: #ffcc00; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+    .team-card { background: #222; padding: 20px; border-radius: 15px; transition: transform 0.3s; }
+    .team-card img { width: 100%; border-radius: 12px; margin-bottom: 15px; }
+    .team-card h3 { font-size: 20px; margin-bottom: 5px; }
+    .team-card p { color: #ffcc00; margin-bottom: 0; }
+    .team-card:hover { transform: translateY(-10px) scale(1.03); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .about-content { flex-direction: column; text-align: center; }
+      .about-text, .about-image { min-width: 100%; }
+    }
+
+    /* SIMPLE NAVBAR */
+    nav { background: #222; padding: 15px; text-align: center; }
+    nav a { color: #ffcc00; margin: 0 10px; text-decoration: none; font-weight: bold; }
+    nav a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/products/">Products</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+
+  <!-- HERO / BANNER -->
+  <section class="about-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay">
+      <h1>About Crono Space</h1>
+      <p>Your trusted partner in quality watches and spare parts.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>Crono Space started with a passion for watches. We provide premium spare parts, tools, and accessories to watch enthusiasts and professionals alike.</p>
+        <p>Our mission is to ensure every watch gets the care it deserves, with top-quality products and reliable repair services.</p>
+      </div>
+      <div class="about-image"><command>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="{% static 'images/team1.jpg' %}" alt="Team Member 1">
+        <h3>Adnan</h3>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-card">
+        <img src="{% static 'images/team2.jpg' %}" alt="Team Member 2">
+        <h3>Sarah</h3>
+        <p>Head of Repairs</p>
+      </div>
+      <div class="team-card">
+        <img src="{% static 'images/team3.jpg' %}" alt="Team Member 3">
+        <h3>John</h3>
+        <p>Product Manager</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#111; padding:20px; text-align:center; color:#ffcc00;">
+    &copy; 2025 Crono Space. All rights reserved.
+  </footer>
+
+</body>
+</html>

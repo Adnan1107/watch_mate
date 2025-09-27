@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repair Guide - Crono Space</title>
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #070707; color: #fff; line-height: 1.6; }
+
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      color: #ffcc00;
+    }
+
+    .guide-section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .guide-section h2 {
+      color: #ffcc00;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .guide-section p, .guide-section ul { font-size: 18px; margin-bottom: 15px; }
+    .guide-section ul { margin-left: 20px; }
+    .guide-section strong { color: #ffcc00; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .video-card {
+      background: #222;
+      padding: 15px;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .video-card:hover { transform: scale(1.03); }
+
+    .video-card iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+    }
+
+    .video-card p {
+      margin-top: 10px;
+      color: #ffcc00;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      color: #aaa;
+    }
+
+    @media(max-width: 768px){
+      .video-card iframe { height: 180px; }
+    }
+
+    /* CHATBOT STYLES */
+    .chat-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ffcc00;
+      color: #111;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+    .chat-window {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      width: 300px;
+      max-height: 400px;
+      background: #222;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    .chat-header {
+      background: #ffcc00;
+      color: #111;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #555;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      background: #111;
+      color: #fff;
+    }
+
+    .chat-input button {
+      padding: 10px;
+      background: #ffcc00;
+      color: #111;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .chat-message.user { text-align: right; color: #ffcc00; margin-bottom: 8px; }
+    .chat-message.bot { text-align: left; color: #fff; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+  <header>Repair Guide - Crono Space</header>
+
+  <section class="guide-section">
+    <h2>Comprehensive Watch Repair Tutorials</h2>
+    <!-- Guides content (battery, strap, glass, maintenance) -->
+    <p><strong>Battery Replacement:</strong> Learn how to safely remove and replace watch batteries.</p>
+    <ul>
+      <li>Remove the watch back using the appropriate tool.</li>
+      <li>Carefully remove the old battery.</li>
+      <li>Check battery type and insert the new battery correctly.</li>
+      <li>Seal the watch back properly to maintain water resistance.</li>
+    </ul>
+
+    <p><strong>Strap Replacement:</strong> Tips for changing straps to refresh your watch style:</p>
+    <ul>
+      <li>Remove the old strap using a spring bar tool.</li>
+      <li>Measure and choose the correct replacement strap.</li>
+      <li>Attach the new strap securely using spring bars.</li>
+      <li>Check for comfort and security before wearing.</li>
+    </ul>
+
+    <p><strong>Glass Replacement:</strong> How to replace cracked or scratched glass safely:</p>
+    <ul>
+      <li>Open the watch case carefully.</li>
+      <li>Remove the damaged glass using proper tools.</li>
+      <li>Fit a new glass ensuring it sits flush.</li>
+      <li>Test water resistance and check sealing.</li>
+    </ul>
+
+    <p><strong>General Maintenance:</strong> Keep your watch running smoothly:</p>
+    <ul>
+      <li>Clean the case, strap, and dial carefully.</li>
+      <li>Lubricate moving parts with proper oils.</li>
+      <li>Check for loose screws and tighten if needed.</li>
+      <li>Test functions after maintenance.</li>
+    </ul>
+
+    <p><strong>Common Tips & Safety:</strong></p>
+    <ul>
+      <li>Always use non-magnetic and watch-specific tools.</li>
+      <li>Work on a clean, soft surface to avoid scratches.</li>
+      <li>Handle delicate parts carefully to prevent damage.</li>
+      <li>Wear gloves to prevent fingerprints and dust inside the watch.</li>
+    </ul>
+
+    <!-- Embedded YouTube videos -->
+    <div class="video-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/5VjzPzK1xqA" title="Watch Repair 1" frameborder="0" allowfullscreen></iframe>
+        <p>Battery & Strap Replacement</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/3ZV2w6cXfEM" title="Watch Repair 2" frameborder="0" allowfullscreen></iframe>
+        <p>Glass Replacement & Maintenance</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/7Gzj4kZbQJ0" title="Watch Repair 3" frameborder="0" allowfullscreen></iframe>
+        <p>Full Watch Repair Guide</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot Button -->
+  <button class="chat-btn" onclick="toggleChat()">Chat</button>
+
+  <!-- Chatbot Window -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">Repair Guide Bot</div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Ask me anything...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 Crono Space. All Rights Reserved.</footer>
+
+  <script>
+    const chatWindow = document.getElementById('chatWindow');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+
+    function toggleChat() {
+      chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+      chatWindow.style.flexDirection = 'column';
+    }
+
+    function sendMessage() {
+      const userMessage = chatInput.value.trim();
+      if (!userMessage) return;
+
+      appendMessage('user', userMessage);
+      chatInput.value = '';
+
+      // Simple bot responses
+      let botReply = "Sorry, I don't understand. Please ask about watch repairs, batteries, straps, or glass.";
+      if (userMessage.toLowerCase().includes('battery')) botReply = "To replace a battery, open the back, remove old battery, insert new one, and close the case.";
+      if (userMessage.toLowerCase().includes('strap')) botReply = "For strap changes, use a spring bar tool to remove old strap and attach new one securely.";
+      if (userMessage.toLowerCase().includes('glass')) botReply = "Glass replacement requires opening the case, removing broken glass, fitting a new glass, and sealing.";
+      if (userMessage.toLowerCase().includes('maintenance')) botReply = "Clean your watch, lubricate moving parts, and check screws for smooth operation.";
+
+      setTimeout(() => appendMessage('bot', botReply), 500);
+    }
+
+    function appendMessage(sender, message) {
+      const msg = document.createElement('div');
+      msg.classList.add('chat-message', sender);
+      msg.textContent = message;
+      chatMessages.appendChild(msg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>

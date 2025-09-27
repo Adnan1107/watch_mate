@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Brands - Crono Space</title>
+    <style>
+        /* RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #070707; color: #fff; }
+
+        /* HERO / BANNER */
+        .brand-hero {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url("{% static 'images/brand-banner.jpg' %}") center/cover no-repeat;
+            filter: brightness(0.6);
+        }
+        .brand-hero h1 {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(32px, 5vw, 60px);
+            color: #ffcc00;
+        }
+
+        /* BRAND GRID */
+        .brand-section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+        .brand-section h2 { text-align: center; font-size: 36px; margin-bottom: 50px; color: #ffcc00; }
+        .brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; }
+        .brand-card { background: #222; padding: 20px; border-radius: 15px; text-align: center; transition: transform 0.3s; }
+        .brand-card img { width: 100%; max-width: 150px; margin-bottom: 15px; }
+        .brand-card h3 { font-size: 20px; color: #fff; margin-bottom: 5px; }
+        .brand-card p { color: #ffcc00; font-size: 14px; }
+
+        .brand-card:hover { transform: translateY(-10px) scale(1.05); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .brand-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="brand-hero">
+        <h1>Our Trusted Brands</h1>
+    </section>
+
+    <!-- BRAND GRID -->
+    <section class="brand-section">
+        <h2>Brands We Offer</h2>
+        <div class="brand-grid">
+            <div class="brand-card">
+                <img src="{% static 'images/.png' %}" alt="Rolex">
+                <h3>Rolex</h3>
+                <p>Luxury Swiss Watches</p>
+            </div>
+            <div class="brand-card">
+                <img src="{% static 'images/brand2.png' %}" alt="Seiko">
+                <h3>Seiko</h3>
+                <p>Precision Japanese Watches</p>
+            </div>
+            <div class="brand-card">
+                <img src="{% static 'images/brand3.png' %}" alt="Casio">
+                <h3>Casio</h3>
+                <p>Durable & Affordable</p>
+            </div>
+            <div class="brand-card">
+                <img src="{% static 'images/brand4.png' %}" alt="Omega">
+                <h3>Omega</h3>
+                <p>Professional Chronometers</p>
+            </div>
+            <div class="brand-card">
+                <img src="{% static 'images/brand5.png' %}" alt="Tag Heuer">
+                <h3>Tag Heuer</h3>
+                <p>Sporty & Elegant</p>
+            </div>
+            <div class="brand-card">
+                <img src="{% static 'images/brand6.png' %}" alt="Tissot">
+                <h3>Tissot</h3>
+                <p>Swiss Heritage Watches</p>
+            </div>
+            <div class="brand-card">
+                <img src="{% static 'images/brand7.png' %}" alt="Citizen">
+                <h3>Citizen</h3>
+                <p>Eco-Drive Technology</p>
+            </div>
+            <div class="brand-card">
+                <img src="{% static 'images/brand8.png' %}" alt="Fossil">
+                <h3>Fossil</h3>
+                <p>Trendy & Affordable</p>
+            </div>
+            <!-- NEW BRANDS -->
+            <div class="brand-card">
+                <img src="{% static 'images/brand9.png' %}" alt="Rado">
+                <h3>Rado</h3>
+                <p>High-Tech Ceramic Watches</p>
+            </div>
+            <div class="brand-card">
+                <img src="{% static 'images/brand10.png' %}" alt="Apple">
+                <h3>Apple</h3>
+                <p>Smartwatches & Innovation</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
