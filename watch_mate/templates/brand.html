@@ -2,113 +2,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Brands - Crono Space</title>
-    <style>
-        /* RESET */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #070707; color: #fff; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Brands - Crono Space</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #070707; color: #fff; }
 
-        /* HERO / BANNER */
-        .brand-hero {
-            position: relative;
-            height: 50vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: url("{% static 'images/brand-banner.jpg' %}") center/cover no-repeat;
-            filter: brightness(0.6);
-        }
-        .brand-hero h1 {
-            position: relative;
-            z-index: 2;
-            font-size: clamp(32px, 5vw, 60px);
-            color: #ffcc00;
-        }
+    /* HERO SECTION */
+    .brand-hero {
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to bottom right, #111, #222);
+    }
+    .brand-hero h1 {
+      font-size: clamp(32px, 5vw, 60px);
+      color: #ffcc00;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+    }
 
-        /* BRAND GRID */
-        .brand-section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-        .brand-section h2 { text-align: center; font-size: 36px; margin-bottom: 50px; color: #ffcc00; }
-        .brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; }
-        .brand-card { background: #222; padding: 20px; border-radius: 15px; text-align: center; transition: transform 0.3s; }
-        .brand-card img { width: 100%; max-width: 150px; margin-bottom: 15px; }
-        .brand-card h3 { font-size: 20px; color: #fff; margin-bottom: 5px; }
-        .brand-card p { color: #ffcc00; font-size: 14px; }
+    /* BRAND SECTION */
+    .brand-section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+    .brand-section h2 { 
+      text-align: center; 
+      font-size: 36px; 
+      margin-bottom: 50px; 
+      color: #ffcc00; 
+      text-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
+    }
 
-        .brand-card:hover { transform: translateY(-10px) scale(1.05); }
+    /* BRAND GRID */
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      justify-items: center;
+    }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .brand-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-        }
-    </style>
+    .brand-card {
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .brand-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* BLACK & WHITE EMOJI STYLE */
+    .brand-emoji {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      font-size: 45px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease-in-out;
+      filter: grayscale(100%) brightness(2);
+    }
+
+    .brand-card:hover .brand-emoji {
+      transform: scale(1.2) rotate(10deg);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .brand-card h3 {
+      color: #ffcc00;
+      font-size: 20px;
+      margin-bottom: 5px;
+      transition: text-shadow 0.3s;
+    }
+
+    .brand-card:hover h3 {
+      text-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+    }
+
+    .brand-card p {
+      font-size: 14px;
+      color: #ccc;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .brand-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+      .brand-emoji { width: 70px; height: 70px; font-size: 35px; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- HERO -->
-    <section class="brand-hero">
-        <h1>Our Trusted Brands</h1>
-    </section>
+  <!-- HERO -->
+  <section class="brand-hero">
+    <h1>Our Watch Emblems</h1>
+  </section>
 
-    <!-- BRAND GRID -->
-    <section class="brand-section">
-        <h2>Brands We Offer</h2>
-        <div class="brand-grid">
-            <div class="brand-card">
-                <img src="{% static 'images/r1.png' %}" alt="Rolex">
-                <h3>Rolex</h3>
-                <p>Luxury Swiss Watches</p>
-            </div>
-            <div class="brand-card">
-                <img src="{% static 'images/brand2.png' %}" alt="Seiko">
-                <h3>Seiko</h3>
-                <p>Precision Japanese Watches</p>
-            </div>
-            <div class="brand-card">
-                <img src="{% static 'images/brand3.png' %}" alt="Casio">
-                <h3>Casio</h3>
-                <p>Durable & Affordable</p>
-            </div>
-            <div class="brand-card">
-                <img src="{% static 'images/brand4.png' %}" alt="Omega">
-                <h3>Omega</h3>
-                <p>Professional Chronometers</p>
-            </div>
-            <div class="brand-card">
-                <img src="{% static 'images/brand5.png' %}" alt="Tag Heuer">
-                <h3>Tag Heuer</h3>
-                <p>Sporty & Elegant</p>
-            </div>
-            <div class="brand-card">
-                <img src="{% static 'images/brand6.png' %}" alt="Tissot">
-                <h3>Tissot</h3>
-                <p>Swiss Heritage Watches</p>
-            </div>
-            <div class="brand-card">
-                <img src="{% static 'images/brand7.png' %}" alt="Citizen">
-                <h3>Citizen</h3>
-                <p>Eco-Drive Technology</p>
-            </div>
-            <div class="brand-card">
-                <img src="{% static 'images/brand8.png' %}" alt="Fossil">
-                <h3>Fossil</h3>
-                <p>Trendy & Affordable</p>
-            </div>
-            <!-- NEW BRANDS -->
-            <div class="brand-card">
-                <img src="{% static 'images/brand9.png' %}" alt="Rado">
-                <h3>Rado</h3>
-                <p>High-Tech Ceramic Watches</p>
-            </div>
-            <div class="brand-card">
-                <img src="{% static 'images/brand10.png' %}" alt="Apple">
-                <h3>Apple</h3>
-                <p>Smartwatches & Innovation</p>
-            </div>
-        </div>
-    </section>
+  <!-- BRANDS -->
+  <section class="brand-section">
+    <h2>Luxury Watch Brands</h2>
+    <div class="brand-grid">
+
+      <div class="brand-card">
+        <span class="brand-emoji">👑</span>
+        <h3>Rolex</h3>
+        <p>Swiss Luxury & Prestige</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">⌚</span>
+        <h3>Casio</h3>
+        <p>Digital Innovation</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">🕰️</span>
+        <h3>Omega</h3>
+        <p>Master Chronometers</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">🏎️</span>
+        <h3>Tag Heuer</h3>
+        <p>Sport & Speed</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">🇨🇭</span>
+        <h3>Tissot</h3>
+        <p>Swiss Craftsmanship</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">🌞</span>
+        <h3>Citizen</h3>
+        <p>Eco-Drive Energy</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">🧭</span>
+        <h3>Fossil</h3>
+        <p>Classic American Style</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">💎</span>
+        <h3>Rado</h3>
+        <p>High-Tech Ceramic</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">🗾</span>
+        <h3>Seiko</h3>
+        <p>Japanese Precision</p>
+      </div>
+
+      <div class="brand-card">
+        <span class="brand-emoji">🍎</span>
+        <h3>Apple</h3>
+        <p>Smartwatch Technology</p>
+      </div>
+
+    </div>
+  </section>
+  <div>
+    <a href="{% url 'home' %}" style="display:block; text-align:center; margin:40px auto; color:#ffcc00; text-decoration:none; font-size:18px;">&larr; Back to Home</a>
+  </div>
+  <div>
+    <a href="{% url 'home' %}" style="display:block; text-align:center; margin:40px auto; color:#ffcc00; text-decoration:none; font-size:18px;">&larr; Back to Home</a>
+  </div>
 
 </body>
 </html>

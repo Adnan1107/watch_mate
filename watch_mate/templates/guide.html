@@ -230,39 +230,86 @@
 
   <script>
     const chatWindow = document.getElementById('chatWindow');
-    const chatMessages = document.getElementById('chatMessages');
-    const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
 
-    function toggleChat() {
-      chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
-      chatWindow.style.flexDirection = 'column';
+function toggleChat() {
+  chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+  chatWindow.style.flexDirection = 'column';
+}
+
+function sendMessage() {
+  const userMessage = chatInput.value.trim();
+  if (!userMessage) return;
+
+  appendMessage('user', userMessage);
+  chatInput.value = '';
+
+  // Bot knowledge with details and YouTube links
+  const botKnowledge = {
+    hi: { message: "Hi! Sir, what can I help you with today?", youtube: "" },
+    hello: { message: "Hello! Sir, what can I help you with today?", youtube: "" },
+    battery: {
+      message: "To replace a battery: open the back of your watch, carefully remove the old battery, check the type, insert the new battery correctly, and close the case to maintain water resistance.",
+      youtube: "https://www.youtube.com/watch?v=5VjzPzK1xqA"
+    },
+    strap: {
+      message: "For strap replacement: use a spring bar tool to remove the old strap, measure and choose the correct replacement, attach the new strap securely using spring bars, and check comfort and security.",
+      youtube: "https://www.youtube.com/watch?v=5VjzPzK1xqA"
+    },
+    glass: {
+      message: "Glass replacement: open the watch case carefully, remove broken glass, fit a new glass flush, and ensure proper sealing for water resistance.",
+      youtube: "https://www.youtube.com/watch?v=3ZV2w6cXfEM"
+    },
+    maintenance: {
+      message: "General maintenance: clean the case and strap, lubricate moving parts with proper oils, check screws, and test functions after maintenance.",
+      youtube: "https://www.youtube.com/watch?v=7Gzj4kZbQJ0"
     }
+  };
 
-    function sendMessage() {
-      const userMessage = chatInput.value.trim();
-      if (!userMessage) return;
+  // Convert input to lowercase for matching
+  const msg = userMessage.toLowerCase();
 
-      appendMessage('user', userMessage);
-      chatInput.value = '';
+  let botReply = "Sorry, I don't understand. Please ask about watch repairs, batteries, straps, glass, or maintenance.";
+  let youtubeLink = "";
 
-      // Simple bot responses
-      let botReply = "Sorry, I don't understand. Please ask about watch repairs, batteries, straps, or glass.";
-      if (userMessage.toLowerCase().includes('battery')) botReply = "To replace a battery, open the back, remove old battery, insert new one, and close the case.";
-      if (userMessage.toLowerCase().includes('strap')) botReply = "For strap changes, use a spring bar tool to remove old strap and attach new one securely.";
-      if (userMessage.toLowerCase().includes('glass')) botReply = "Glass replacement requires opening the case, removing broken glass, fitting a new glass, and sealing.";
-      if (userMessage.toLowerCase().includes('maintenance')) botReply = "Clean your watch, lubricate moving parts, and check screws for smooth operation.";
-
-      setTimeout(() => appendMessage('bot', botReply), 500);
+  // Check for greetings first
+  if (msg.includes('hi')) {
+    botReply = botKnowledge.hi.message;
+  } else if (msg.includes('hello')) {
+    botReply = botKnowledge.hello.message;
+  } else {
+    // Check for other keywords
+    for (const key of ['battery','strap','glass','maintenance']) {
+      if (msg.includes(key)) {
+        botReply = botKnowledge[key].message;
+        youtubeLink = botKnowledge[key].youtube;
+        break;
+      }
     }
+  }
 
-    function appendMessage(sender, message) {
-      const msg = document.createElement('div');
-      msg.classList.add('chat-message', sender);
-      msg.textContent = message;
-      chatMessages.appendChild(msg);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+  // Append bot message
+  setTimeout(() => {
+    appendMessage('bot', botReply);
+    // Append YouTube link if exists
+    if (youtubeLink) {
+      appendMessage('bot', `📺 Watch Video Tutorial: ${youtubeLink}`);
     }
+  }, 500);
+}
+
+function appendMessage(sender, message) {
+  const msg = document.createElement('div');
+  msg.classList.add('chat-message', sender);
+  msg.textContent = message;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
   </script>
+  <div>
+    <a href="{% url 'home' %}" style="display:block; text-align:center; margin:40px auto; color:#ffcc00; text-decoration:none; font-size:18px;">&larr; Back to Home</a>
+  </div>
 
 </body>
 </html>

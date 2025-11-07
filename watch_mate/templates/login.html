@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Crono Space</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: #ffcc00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: rgba(20, 20, 20, 0.95);
+      padding: 40px 35px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .login-container:hover {
+      box-shadow: 0 0 35px rgba(255, 204, 0, 0.5);
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ffcc00;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 15px;
+      background: #111;
+      border: 2px solid #ffcc00;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #ff9900;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .remember label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      color: #ffcc00;
+    }
+
+    .remember a {
+      color: #ff9900;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .remember a:hover {
+      color: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #ffcc00;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s;
+    }
+
+    button:hover {
+      background: #ff9900;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .signup {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #ffcc00;
+    }
+
+    .signup a {
+      color: #ff9900;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .signup a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Login to Crono Space</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div class="remember">
+        <label><input type="checkbox" name="remember"> Remember Me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="submit">Login</button>
+
+      <p class="signup">Don’t have an account? <a href="/signup/">Sign Up</a></p>
+    </form>
+  </div>
+  <div>
+    <a href="{% url 'home' %}" style="display:block; text-align:center; margin:40px auto; color:#ffcc00; text-decoration:none; font-size:18px;">&larr; Back to Home</a>
+  </div>
+
+</body>
+</html>

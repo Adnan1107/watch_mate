@@ -78,9 +78,7 @@
 
   <!-- NAVBAR -->
   <nav>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/products/">Products</a>
+    <a href="{% url 'home' %}">home</a>
     <a href="/contact/">Contact</a>
   </nav>
 
@@ -111,17 +109,15 @@
     <h2>Meet Our Team</h2>
     <div class="team-grid">
       <div class="team-card">
-        <img src="{% static 'images/team1.jpg' %}" alt="Team Member 1">
+      
         <h3>Adnan</h3>
         <p>Founder & CEO</p>
       </div>
       <div class="team-card">
-        <img src="{% static 'images/team2.jpg' %}" alt="Team Member 2">
         <h3>Sarah</h3>
         <p>Head of Repairs</p>
       </div>
       <div class="team-card">
-        <img src="{% static 'images/team3.jpg' %}" alt="Team Member 3">
         <h3>John</h3>
         <p>Product Manager</p>
       </div>
@@ -132,6 +128,9 @@
   <footer style="background:#111; padding:20px; text-align:center; color:#ffcc00;">
     &copy; 2025 Crono Space. All rights reserved.
   </footer>
+  <div>
+    <a href="{% url 'home' %}" style="display:block; text-align:center; margin:40px auto; color:#ffcc00; text-decoration:none; font-size:18px;">&larr; Back to Home</a>
+  </div>
 
 </body>
 </html>

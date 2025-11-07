@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Watches - Crono Space</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    body { background:#070707; color:#fff; }
+
+    header {
+      background:#111; padding:20px; text-align:center;
+      font-size:28px; color:#ffcc00; letter-spacing:2px;
+    }
+
+    section {
+      padding:50px 20px; max-width:1400px; margin:auto;
+    }
+
+    h2 {
+      color:#ffcc00; margin-bottom:30px; text-align:center;
+      font-size:32px; text-transform:uppercase;
+    }
+
+    /* 4 columns fixed grid */
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:25px;
+    }
+
+    /* Responsive behavior */
+    @media (max-width: 1200px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background:#1a1a1a; border-radius:15px; overflow:hidden;
+      box-shadow:0 4px 15px rgba(0,0,0,0.6);
+      transition:transform 0.3s, box-shadow 0.3s;
+      position:relative;
+    }
+
+    .card:hover {
+      transform:translateY(-8px) scale(1.03);
+      box-shadow:0 10px 25px rgba(255,204,0,0.5);
+    }
+
+    .card img {
+      width:100%; height:230px; object-fit:cover;
+      border-bottom:2px solid #ffcc00;
+    }
+
+    .card-content {
+      padding:15px; text-align:center;
+    }
+
+    .card-content h3 {
+      font-size:18px; margin-bottom:10px; color:#ffcc00;
+    }
+
+    .price {
+      color:#ffcc00; font-weight:bold; font-size:16px;
+    }
+
+    .rating { margin-top:8px; color:#ff9900; }
+
+    .buy-btn {
+      display:inline-block; margin-top:10px; padding:8px 15px;
+      background:#ffcc00; color:#111; text-decoration:none;
+      border-radius:8px; font-weight:bold; transition:0.3s;
+    }
+
+    .buy-btn:hover { background:#ff9900; color:#fff; }
+
+    footer {
+      background:#111; text-align:center;
+      padding:20px; margin-top:50px; color:#aaa; font-size:14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>Buy Premium Watches - Crono Space</header>
+
+<!-- Rolex Watches -->
+<section>
+  <h2>Rolex Watches</h2>
+  <div class="grid">
+    <div class="card"><img src="{% static 'images/r1.jpeg' %}" alt="Rolex r1"><div class="card-content"><h3>Rolex r1</h3><p class="price">$4500</p><p class="rating">⭐⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/r2.jpeg' %}" alt="Rolex r2"><div class="card-content"><h3>Rolex r2</h3><p class="price">$4600</p><p class="rating">⭐⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/r3.jpeg' %}" alt="Rolex r3"><div class="card-content"><h3>Rolex r3</h3><p class="price">$4700</p><p class="rating">⭐⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/r4.jpeg' %}" alt="Rolex r4"><div class="card-content"><h3>Rolex r4</h3><p class="price">$4800</p><p class="rating">⭐⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <!-- Continue similarly up to r15 -->
+  </div>
+</section>
+
+<!-- Casio Watches -->
+<section>
+  <h2>Casio Watches</h2>
+  <div class="grid">
+    <div class="card"><img src="{% static 'images/c1.jpeg' %}" alt="Casio c1"><div class="card-content"><h3>Casio c1</h3><p class="price">$150</p><p class="rating">⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/c2.jpeg' %}" alt="Casio c2"><div class="card-content"><h3>Casio c2</h3><p class="price">$170</p><p class="rating">⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/c3.jpeg' %}" alt="Casio c3"><div class="card-content"><h3>Casio c3</h3><p class="price">$190</p><p class="rating">⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/c4.jpeg' %}" alt="Casio c4"><div class="card-content"><h3>Casio c4</h3><p class="price">$210</p><p class="rating">⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <!-- Continue similarly up to c17 -->
+  </div>
+</section>
+
+<!-- Fossil Watches -->
+<section>
+  <h2>Fossil Watches</h2>
+  <div class="grid">
+    <div class="card"><img src="{% static 'images/f1.jpeg' %}" alt="Fossil f1"><div class="card-content"><h3>Fossil f1</h3><p class="price">$300</p><p class="rating">⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/f2.jpeg' %}" alt="Fossil f2"><div class="card-content"><h3>Fossil f2</h3><p class="price">$320</p><p class="rating">⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/f5.jpeg' %}" alt="Fossil f8"><div class="card-content"><h3>Fossil f2</h3><p class="price">$320</p><p class="rating">⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/f6.jpeg' %}" alt="Fossil f6"><div class="card-content"><h3>Fossil f2</h3><p class="price">$320</p><p class="rating">⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+
+    <!-- Continue similarly up to f9 -->
+     
+  </div>
+</section>
+
+<!-- Rado Watches -->
+<section>
+  <h2>Rado Watches</h2>
+  <div class="grid">
+    <div class="card"><img src="{% static 'images/d1.jpeg' %}" alt="Rado d1"><div class="card-content"><h3>Rado d1</h3><p class="price">$2200</p><p class="rating">⭐⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/d2.jpeg' %}" alt="Rado d2"><div class="card-content"><h3>Rado d2</h3><p class="price">$2600</p><p class="rating">⭐⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/d3.jpeg' %}" alt="Rado d3"><div class="card-content"><h3>Rado d3</h3><p class="price">$2800</p><p class="rating">⭐⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/d4.jpeg' %}" alt="Rado d4"><div class="card-content"><h3>Rado d4</h3><p class="price">$3000</p><p class="rating">⭐⭐⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+  </div>
+</section>
+
+<!-- Other Brand Watches -->
+<section>
+  <h2>Other Brand Watches</h2>
+  <div class="grid">
+    <div class="card"><img src="{% static 'images/o1.jpeg' %}" alt="Other o1"><div class="card-content"><h3> o1</h3><p class="price">$120</p><p class="rating">⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/o2.jpeg' %}" alt="Other o2"><div class="card-content"><h3>o2</h3><p class="price">$130</p><p class="rating">⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/o4.jpeg' %}" alt="Other o4"><div class="card-content"><h3>o4</h3><p class="price">$150</p><p class="rating">⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <div class="card"><img src="{% static 'images/o5.jpeg' %}" alt="Other o5"><div class="card-content"><h3>o5</h3><p class="price">$160</p><p class="rating">⭐⭐⭐</p><a href="#" class="buy-btn">Buy Now</a></div></div>
+    <!-- Continue up to o9 -->
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Crono Space. All Rights Reserved.
+</footer>
+  <div>   
+       <a href="{% url 'home' %}" style="display:block; text-align:center; margin:40px auto; color:#ffcc00; text-decoration:none; font-size:18px;">&larr; Back to Home</a>
+  </div>
+</body>
+</html>

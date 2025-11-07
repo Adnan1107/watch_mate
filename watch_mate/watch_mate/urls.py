@@ -17,13 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from chrono_space import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',views.home),
-    path('about/',views.about),
-    path('brand/',views.brand),
-    path('guide/',views.guide),
-    path('contact/',views.contact),
-]
+    path('',views.home),
+    path('about/',views.about,name='About'),
+    path('brand/',views.brand,name='brand'),
+    path('guide/',views.guide,name='guide'),
+    path('contact/',views.contact,name='contact'),
+    path('shop/',views.explore_now,name='explore_now'),
+    path('login/',views.login,name='login'),
+    path('home/',views.home,name='home'),
+    path('signup/', views.signup, name='signup'),
+    
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
